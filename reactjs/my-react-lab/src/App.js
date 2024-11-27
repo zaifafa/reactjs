@@ -1,12 +1,18 @@
-import logo from './logo.svg';
+import React from 'react';
+import Greeting from './Component/Greeting.js';
+import Header from './Component/Header.js';
+import Content from './Component/Content.js';
 import './App.css';
-let name = "zaifa"
-function App() {
+import Footer from './Component/Footer.js';
+const App = () => {
   return (
-    <div className="App">
-     <h1>Hello, {name}!</h1>
+    <div>
+      <Greeting />
+      <Header />
+      <Content />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
