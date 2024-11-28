@@ -1,16 +1,18 @@
+// App.js
+
 import React from 'react';
-import Greeting from './Component/Greeting.js';
-import Header from './Component/Header.js';
-import Content from './Component/Content.js';
-import './App.css';
-import Footer from './Component/Footer.js';
+import './App.css';  // Import global styles
+import Navbar from './Component/Navbar';
+import Landingpage from './Component/Landingpage';
+import Footer from './Component/Footer';
+
 const App = () => {
   return (
     <div>
-      <Greeting />
-      <Header />
-      <Content />
-      <Footer />
+      {/* Render the second set of components */}
+      <Navbar />
+      <Landingpage />
+      <Footer/>
     </div>
   );
 };

@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Keep logo on the left and menu on the right */
+    align-items: center;
+    padding: 20px;
+    background-color: #292929;
+    color: #292929;
+}
+
+.navbar-logo img {
+    width: 150px;
+    height: 30px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 100px;/* Minimal space between items */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    margin-left: auto; /* Push the menu to the right */
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px; /* Adjusted padding to keep it compact */
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar-link:hover {
+    background-color: #fca311;
+    color: #fff;
+}
