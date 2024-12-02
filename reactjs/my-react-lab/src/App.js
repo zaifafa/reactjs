@@ -1,20 +1,35 @@
-// App.js
+import React from "react";
+import ProfileCard from "./Components/profilecard";
 
-import React from 'react';
-import './App.css';  // Import global styles
-import Navbar from './Component/Navbar';
-import Landingpage from './Component/Landingpage';
-import Footer from './Component/Footer';
-
-const App = () => {
+function App() {
   return (
-    <div>
-      {/* Render the second set of components */}
-      <Navbar />
-      <Landingpage />
-      <Footer/>
+    <div className="app">
+      <h1>Krufter Employee Profiles</h1>
+      <div className="profile-card-container">
+        {/* First card */}
+        <ProfileCard
+          name="Moosa"
+          age={30}
+          occupation="Owner"
+          location="New York"
+        />
+        
+        <ProfileCard
+          name="Ahmed"
+          age={25}
+          occupation="Designer"
+          location="India"
+        />
+        
+        <ProfileCard
+          name="Ibrahim"
+          age={28}
+          occupation="Developer"
+          location="Pakistan"
+        />
+      </div>
     </div>
   );
-};
+}
 
 export default App;
