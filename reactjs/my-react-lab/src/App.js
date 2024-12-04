@@ -1,35 +1,29 @@
 import React from "react";
-import ProfileCard from "./Components/profilecard";
+import { userData, statistics, messages, projectData } from './data/data'; 
+import UserProfile from './Components/userprofile';
+import Statistics from './Components/statistics';
+import Messages from './Components/messages';
+import Project from './Components/project';
+import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="app">
-      <h1>Krufter Employee Profiles</h1>
-      <div className="profile-card-container">
-        {/* First card */}
-        <ProfileCard
-          name="Moosa"
-          age={30}
-          occupation="Owner"
-          location="New York"
-        />
-        
-        <ProfileCard
-          name="Ahmed"
-          age={25}
-          occupation="Designer"
-          location="India"
-        />
-        
-        <ProfileCard
-          name="Ibrahim"
-          age={28}
-          occupation="Developer"
-          location="Pakistan"
-        />
+    <div className="app-container">
+      <header className="app-header">
+        <h1>Welcome to User Dashboard</h1>
+      </header>
+      <div className="main-content">
+        <div className="sidebar">
+          <UserProfile user={userData} />
+        </div>
+        <div className="content">
+          <Statistics stats={statistics} />
+          <Messages messages={messages} />
+          <Project project={projectData} />
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;
