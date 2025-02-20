@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Indie+Flower&family=Pacifico&display=swap');
+
+:root {
+  --primary-pink: #FF69B4;
+  --soft-pink: #FFB6C1;
+  --pastel-purple: #DDA0DD;
+  --light-lavender: #E6E6FA;
+  --romantic-red: #FF3366;
+}
+
+body {
+  background: linear-gradient(135deg, var(--soft-pink), var(--pastel-purple));
+  min-height: 100vh;
+  font-family: 'Indie Flower', cursive;
+}
+
+.love-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.love-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+}
+
+.input-love {
+  background: linear-gradient(to right, var(--light-lavender), #FFF0F5);
+  border: 3px solid var(--primary-pink);
+  color: var(--romantic-red);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.input-love:focus {
+  outline: none;
+  border-color: var(--romantic-red);
+  box-shadow: 0 0 10px rgba(255, 54, 102, 0.3);
+}
+
+.btn-love {
+  background: var(--romantic-red);
+  color: white;
+  border: none;
+  font-family: 'Pacifico', cursive;
+  transition: all 0.3s ease;
+}
+
+.btn-love:hover {
+  background: var(--primary-pink);
+  transform: scale(1.05);
+}
+
+@keyframes heart-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.heart-animation {
+  animation: heart-pulse 1.5s infinite;
+}
+
+@keyframes love-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+.love-float {
+  animation: love-float 3s ease-in-out infinite;
+}
+
+.glitter-text {
+  background: linear-gradient(45deg, var(--romantic-red), var(--primary-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}

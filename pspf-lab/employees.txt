@@ -1,0 +1,3 @@
+ID: 34, Name: moosa, Salary: 25
+ID: 24, Name: moosa, Salary: 20
+23,moosa,20000

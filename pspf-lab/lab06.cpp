@@ -1,42 +1,88 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
+struct Book {
+    string title;
+    string author;
+    string isbn;
+    bool available;
+};
+
 int main() {
-    const int NUM_SUBJECTS = 3; // Maths, Science, English
-    const int NUM_TESTS = 2;    
-    double averages[NUM_SUBJECTS]; 
+    Book books[100];
+    int bookCount = 0;
+    
+    while(true) {
+        cout << "1. Add Book" << endl;
+        cout << "2. Check Out Book" << endl;
+        cout << "3. Return Book" << endl;
+        cout << "4. Show Books" << endl;
+        cout << "5. Exit" << endl;
+        
+        int choice;
+        cin >> choice;
+        cin.ignore();
 
-    for (int i = 0; i < NUM_SUBJECTS; i++) {
-        double sum = 0; 
-        int validTests = 0;
-        cout << "Enter marks for Subject " << (i + 1) << ":\n";
+        if(choice == 1) {
+            Book b;
+            cout << "Book Title: ";
+            getline(cin, b.title);
+            cout << "Author: ";
+            getline(cin, b.author);
+            cout << "ISBN: ";
+            getline(cin, b.isbn);
+            b.available = true;
 
-        for (int j = 0; j < NUM_TESTS; j++) {
-            int marks;
-            cout << "Test " << (j + 1) << ": ";
-            cin >> marks;
+            books[bookCount] = b;
+            bookCount++;
 
-            if (marks < 0 || marks > 100) {
-                cout << "Invalid marks! Skipping this test.\n";
-                continue; k,
+            ofstream file("library.txt", ios::app);
+            file << b.title << endl;
+            file << b.author << endl;
+            file << b.isbn << endl;
+            file << b.available << endl;
+            file.close();
+        }
+        else if(choice == 2) {
+            string isbn;
+            cout << "Enter Book ISBN to Check Out: ";
+            getline(cin, isbn);
+
+            for(int i = 0; i < bookCount; i++) {
+                if(books[i].isbn == isbn && books[i].available) {
+                    books[i].available = false;
+                    cout << "Book Checked Out!" << endl;
+                    break;
+                }
             }
-
-            sum += marks;
-            validTests++;
         }
+        else if(choice == 3) {
+            string isbn;
+            cout << "Enter Book ISBN to Return: ";
+            getline(cin, isbn);
 
-        if (validTests > 0) {
-            averages[i] = sum / validTests;
-        } else {
-            averages[i] = 0; 
+            for(int i = 0; i < bookCount; i++) {
+                if(books[i].isbn == isbn && !books[i].available) {
+                    books[i].available = true;
+                    cout << "Book Returned!" << endl;
+                    break;
+                }
+            }
         }
-
-        cout << "Average for Subject " << (i + 1) << ": " << averages[i] << "\n\n";
-    }
-
-    cout << "Final Results:\n";
-    for (int i = 0; i < NUM_SUBJECTS; i++) {
-        cout << "Subject " << (i + 1) << ": " << averages[i] << "\n";
+        else if(choice == 4) {
+            for(int i = 0; i < bookCount; i++) {
+                cout << "Title: " << books[i].title << endl;
+                cout << "Author: " << books[i].author << endl;
+                cout << "ISBN: " << books[i].isbn << endl;
+                cout << "Available: " << (books[i].available ? "Yes" : "No") << endl;
+                cout << "---" << endl;
+            }
+        }
+        else if(choice == 5) {
+            break;
+        }
     }
 
     return 0;
