@@ -6,7 +6,7 @@ const Navbar = ({ cartCount }) => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="logo">ShopEase</Link>
+        <Link to="/" className="logo">GUtech Exam Store</Link>
         <Link to="/cart" className="cart-icon">
           🛒 <span className="cart-count">{cartCount}</span>
         </Link>

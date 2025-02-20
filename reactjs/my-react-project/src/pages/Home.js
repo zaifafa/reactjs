@@ -12,7 +12,6 @@ const products = [
 const Home = ({ addToCart }) => {
   return (
     <div className="home-container">
-      <h1 className="title">Our Products</h1>
       <div className="products-container">
         {products.map((product) => (
           <div key={product.id} className="product-card">
